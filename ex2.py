@@ -37,10 +37,27 @@ def flw_rule(dct, rules):
     return True
 rules = {"red": 12, "blue": 14, "green": 13}
 
-summ = 0
-for s in ls:
-    print(s)
-    inds, clr_dict = process_game(s)
-    if flw_rule(clr_dict, rules):
-        summ += inds
-print(summ)
+def min_balls(dct):
+    power = 1
+    for key in dct.keys():
+        power *= max(dct[key])
+    return power
+
+def ex1():
+    summ = 0
+    for s in ls:
+        print(s)
+        inds, clr_dict = process_game(s)
+        if flw_rule(clr_dict, rules):
+            summ += inds
+    print(summ)
+
+def ex2():
+    summ = 0
+    for s in ls:
+        print(s)
+        inds, clr_dict = process_game(s)
+        summ += min_balls(clr_dict)
+    print(summ)
+
+ex2()
