@@ -44,9 +44,5 @@ def card_game(cs):
             proc_card2(ws, yl, ccops, i)
     return ccops
 
-print(cs)
 res = clean_input(cs)
-print(res)
 res2 = card_game(cs)
-print(res2)
-print(sum(res2))
