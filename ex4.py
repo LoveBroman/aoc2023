@@ -25,7 +25,7 @@ def proc_card2(ws, yl, cops, i):
     j = 1
     for n in yl:
         if n in ws:
-            cops[i + j] += 1
+            cops[i + j] += cops[i]
             j += 1
     return i
 
@@ -40,9 +40,9 @@ def card_game(cs):
     ccops = [1] * len(cs)
     for i, c in enumerate(cs):
         ws, yl = clean_card(c)
-        for j in range(ccops[i]):
-            proc_card2(ws, yl, ccops, i)
+        proc_card2(ws, yl, ccops, i)
     return ccops
 
 res = clean_input(cs)
 res2 = card_game(cs)
+print(sum(res2))
