@@ -21,12 +21,32 @@ def proc_card(ws, yl):
             i *= 2
     return i
 
+def proc_card2(ws, yl, cops, i):
+    j = 1
+    for n in yl:
+        if n in ws:
+            cops[i + j] += 1
+            j += 1
+    return i
+
 def clean_input(cs):
     res = 0
     for card in cs:
         ws, yl = clean_card(card)
         res += proc_card(ws, yl)
     return res
+
+def card_game(cs):
+    ccops = [1] * len(cs)
+    for i, c in enumerate(cs):
+        ws, yl = clean_card(c)
+        for j in range(ccops[i]):
+            proc_card2(ws, yl, ccops, i)
+    return ccops
+
 print(cs)
 res = clean_input(cs)
 print(res)
+res2 = card_game(cs)
+print(res2)
+print(sum(res2))
